@@ -1,0 +1,37 @@
+
+<table class="border-1 ">
+    <caption>
+      Factures
+    </caption>
+    <thead>
+      <tr class="table-cellule">
+        <th scope="col">Designation</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Prix unitaire</th>
+      </tr>
+    </thead>
+    <tbody>
+     @for(item of listeDeFactures;track item){<tr>
+        <th scope="row">{{item.designation}}</th>
+        <td>{{item.quantite}}</td>
+        <td>{{item.prix}}</td>
+      </tr>} 
+    </tbody>
+    <tfoot>
+        <tr>
+          <th scope="row" colspan="2">Total</th>
+          <td>{{total}}</td>
+        </tr>
+      </tfoot>
+  </table>
+
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()"class="grid grid-cols-1 items-center w-80 m-5" method="get">
+   <strong><p>Ajouter une nouvelle facture</p></strong>
+    <input class="border text-gray-400 p-1" type="text"  placeholder="designation" formControlName="designation" required >
+    <input class="border-1 text-gray-400 p-1" type="number"  placeholder="quantite" formControlName="quantite" required>
+    <input class="border-1 text-gray-400 p-1" type="number"  placeholder="prix" formControlName="prix" required >
+    <button class="border-1" type="submit" value="Ajouter">Ajouter</button>
+</form>
+
+
